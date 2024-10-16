@@ -8,7 +8,7 @@ class App {
     const separator = MakeSeparator();
     //Console.print(separator);
 
-    while (input.match(/^\/\//g)){
+    while(input.match(/^\/\//g)) {
       const match = input.match(/\/\/(.*?)\\n/);
       //Console.print(match);
       const customSep = match[1];
@@ -17,6 +17,11 @@ class App {
     }
     //Console.print(input);
     //Console.print(separator);
+
+    const separatorRegex = new RegExp(`[${separator.join('')}]`);
+    const numbers = input.split(separatorRegex);
+    //Console.print(numbers);
+
   }
 }
 
