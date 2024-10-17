@@ -29,6 +29,10 @@ class App {
           const errMessage = `[ERROR] 적절하지 않은 입력 값(2)`;
           throw new Error(errMessage);
         }
+        if(parseFloat(num) < 0){
+          const errMessage = `[ERROR] 적절하지 않은 입력 값(3)`;
+          throw new Error(errMessage);
+        }
 
         return parseFloat(num);
       })
