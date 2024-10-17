@@ -38,7 +38,7 @@ class App {
       return parseFloat(num);
     })
 
-    const result = numbers.reduce((acc, cur) => acc + cur, 0);
+    const result = +(numbers.reduce((acc, cur) => acc + cur, 0)).toFixed(12);
 
     const message = `결과 : ${result}`;
 
