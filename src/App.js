@@ -4,6 +4,7 @@ import MakeSeparator from "./MakeSeparator.js";
 
 class App {
   async run() {
+    let result = 0;
     let input = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요.\n');
     const separator = MakeSeparator();
     //Console.print(separator);
@@ -22,6 +23,16 @@ class App {
     const numbers = input.split(separatorRegex);
     //Console.print(numbers);
 
+    for(let num of numbers) {
+      if(isNaN(num)){
+        //Error, 애플리케이션 종료
+      }
+      result += parseFloat(num);
+    }
+
+    const message = `결과 : ${result}`;
+
+    Console.print(message);
   }
 }
 
