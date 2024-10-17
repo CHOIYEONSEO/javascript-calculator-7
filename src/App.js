@@ -6,6 +6,13 @@ class App {
   async run() {
     try{
       let input = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요.\n');
+
+      if (!input){
+        //Console.print('배고파');
+        const errMessage = `[ERROR] 적절하지 않은 입력 값(1)`;
+        throw new Error(errMessage);
+      }
+
       const separator = MakeSeparator();
   
       while(input.match(/^\/\//g)) {
@@ -19,7 +26,7 @@ class App {
   
       const numbers = input.split(separatorRegex).map(num => {
         if(isNaN(num)){
-          const errMessage = `[ERROR] 적절하지 않은 입력 값`;
+          const errMessage = `[ERROR] 적절하지 않은 입력 값(2)`;
           throw new Error(errMessage);
         }
 
