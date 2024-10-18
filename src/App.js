@@ -16,10 +16,15 @@ class App {
       const separator = MakeSeparator();
   
       while(input.match(/^\/\//g)) {
-        const match = input.match(/\/\/(.*?)\\n/);
-        const customSep = match[1];
-        separator.push(customSep);
-        input = input.substr(match[0].length);
+        if(input.match(/\/\/(.*?)\\n/)){
+          const match = input.match(/\/\/(.*?)\\n/);
+          const customSep = match[1];
+          separator.push(customSep);
+          input = input.substr(match[0].length);
+        } else {
+          const errMessage = `[ERROR] 올바르지 않은 커스텀 구분자 지정 형식`;
+          throw new Error(errMessage);
+        }
       }
   
       const separatorRegex = new RegExp(`[${separator.join('')}]`);
