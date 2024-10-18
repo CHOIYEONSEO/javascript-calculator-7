@@ -16,8 +16,8 @@ class App {
       const separator = MakeSeparator();
   
       while(input.match(/^\/\//g)) {
-        if(input.match(/\/\/(.*?)\\n/)){
-          const match = input.match(/\/\/(.*?)\\n/);
+        if(input.match(/\/\/(.)\\n/)){
+          const match = input.match(/\/\/(.)\\n/);
           const customSep = match[1];
           separator.push(customSep);
           input = input.substr(match[0].length);
@@ -28,6 +28,12 @@ class App {
       }
   
       const separatorRegex = new RegExp(`[${separator.join('')}]`);
+
+      const splitArr = input.split(separatorRegex);
+      if (!splitArr.every(el => el)){
+        const errMessage = `[ERROR] 적절하지 않은 입력 값(Invalid Input: ${input})`;
+        throw new Error(errMessage);
+      }
   
       const numbers = input.split(separatorRegex).map(num => {
         if(isNaN(num)){
