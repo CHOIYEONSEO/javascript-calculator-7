@@ -1,6 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print()
-import MakeSeparator from "./MakeSeparator.js";
 
 class App {
   async run() {
@@ -13,7 +12,7 @@ class App {
         throw new Error(errMessage);
       }
 
-      const separator = MakeSeparator();
+      const separator = [',', ':'];
   
       while(input.match(/^\/\//g)) {
         if(input.match(/\/\/(.)\\n/)){
