@@ -31,7 +31,7 @@ class App {
   
       const numbers = input.split(separatorRegex).map(num => {
         if(isNaN(num)){
-          const errMessage = `[ERROR] 적절하지 않은 입력 값(Invalid Number: ${num})`;
+          const errMessage = `[ERROR] 적절하지 않은 입력 값(Invalid Input: ${num})`;
           throw new Error(errMessage);
         }
 
