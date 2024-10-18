@@ -37,7 +37,7 @@ class App {
   
       const numbers = splitArr.map(num => {
         if(isNaN(num)){
-          const errMessage = `[ERROR] 적절하지 않은 입력 값(Invalid Input: ${num})`;
+          const errMessage = `[ERROR] 적절하지 않은 입력 값(Not Number: ${num})`;
           throw new Error(errMessage);
         }
 
