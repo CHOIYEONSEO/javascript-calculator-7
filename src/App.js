@@ -6,7 +6,7 @@ class App {
     try{
       let input = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요.\n');
 
-      if (!input){
+      if(!input) {
         //Console.print('배고파');
         const errMessage = `[ERROR] 적절하지 않은 입력 값(Empty Input)`;
         throw new Error(errMessage);
@@ -15,7 +15,7 @@ class App {
       const separator = [',', ':'];
   
       while(input.match(/^\/\//g)) {
-        if(input.match(/\/\/(.)\\n/)){
+        if(input.match(/\/\/(.)\\n/)) {
           const match = input.match(/\/\/(.)\\n/);
           const customSep = match[1];
           separator.push(customSep);
@@ -29,7 +29,7 @@ class App {
       const separatorRegex = new RegExp(`[${separator.join('')}]`);
 
       const splitArr = input.split(separatorRegex);
-      if (!splitArr.every(el => el)){
+      if(!splitArr.every(el => el)) {
         const errMessage = `[ERROR] 적절하지 않은 입력 값(Invalid Input: ${input})`;
         throw new Error(errMessage);
       }
@@ -37,20 +37,20 @@ class App {
       const numbers = splitArr.map(num => {
         const trimmedNum = num.trim();
 
-        if(num !== trimmedNum){
+        if(num !== trimmedNum) {
           const errMessage = `[ERROR] 적절하지 않은 입력 값(Contain Whitespace: ${num})`;
           throw new Error(errMessage);
         }
 
 
-        if(isNaN(num)){
+        if(isNaN(num)) {
           const errMessage = `[ERROR] 적절하지 않은 입력 값(Not Number: ${num})`;
           throw new Error(errMessage);
         }
 
         const parsedNum = parseFloat(num)
 
-        if(parsedNum < 0){
+        if(parsedNum < 0) {
           const errMessage = `[ERROR] 적절하지 않은 입력 값(Negative Number: ${parsedNum})`;
           throw new Error(errMessage);
         }
