@@ -9,7 +9,7 @@ class App {
 
       if (!input){
         //Console.print('배고파');
-        const errMessage = `[ERROR] 적절하지 않은 입력 값(1)`;
+        const errMessage = `[ERROR] 적절하지 않은 입력 값(Empty Input)`;
         throw new Error(errMessage);
       }
 
@@ -26,14 +26,14 @@ class App {
   
       const numbers = input.split(separatorRegex).map(num => {
         if(isNaN(num)){
-          const errMessage = `[ERROR] 적절하지 않은 입력 값(2)`;
+          const errMessage = `[ERROR] 적절하지 않은 입력 값(Invalid Number: ${num})`;
           throw new Error(errMessage);
         }
 
         const parsedNum = parseFloat(num)
 
         if(parsedNum < 0){
-          const errMessage = `[ERROR] 적절하지 않은 입력 값(3)`;
+          const errMessage = `[ERROR] 적절하지 않은 입력 값(Negative Number: ${parsedNum})`;
           throw new Error(errMessage);
         }
 
